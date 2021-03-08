@@ -2,44 +2,44 @@
     "top_10" : {
         "list" : [
             {
-                "number": "1" ,
+                "rank": "1" ,
                 "title": "미니가습기"
             },
             {
-                "number": "2" ,
-                "title": "미니가습기"
+                "rank": "2" ,
+                "title": "수분크림"
             },
             {
-                "number": "3" ,
-                "title": "미니가습기"
+                "rank": "3" ,
+                "title": "모니터받침대"
             },
             {
-                "number": "4" ,
-                "title": "미니가습기"
+                "rank": "4" ,
+                "title": "블루투스이어폰"
             },
             {
-                "number": "5" ,
-                "title": "미니가습기"
+                "rank": "5" ,
+                "title": "헤어마스크"
             },
             {
-                "number": "6" ,
-                "title": "미니가습기"
+                "rank": "6" ,
+                "title": "연필꽂이"
             },
             {
-                "number": "7" ,
-                "title": "미니가습기"
+                "rank": "7" ,
+                "title": "귀걸이"
             },
             {
-                "number": "8" ,
-                "title": "미니가습기"
+                "rank": "8" ,
+                "title": "샤워타올"
             },
             {
-                "number": "9" ,
-                "title": "미니가습기"
+                "rank": "9" ,
+                "title": "남성벨트"
             },
             {
-                "number": "10" ,
-                "title": "미니가습기"
+                "rank": "10" ,
+                "title": "포스터액자"
             }
         ]
     }

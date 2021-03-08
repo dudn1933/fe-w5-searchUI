@@ -46,5 +46,3 @@ function OUT_BUTTON_CURSOR() {
     LEFT_BUTTON.classList.remove(LEFT_BUTTON_CURSOR);
     RIGHT_BUTTON.classList.remove(RIGHT_BUTTON_CURSOR);
 };
-
-

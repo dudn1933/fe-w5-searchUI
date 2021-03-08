@@ -1,19 +1,23 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const cors = require('cors');
+import express from "express";
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import cors from 'cors';
+import ejs from 'ejs';
 
-const indexRouter = require('./routes/index');
-const imageRouter = require('./routes/image');
-const top10_Router = require('./routes/top_10');
+import indexRouter from './routes/index.js';
+import imageRouter from './routes/image.js';
+import top10_Router from './routes/top_10.js';
 
 const app = express();
+const port = 3000;
+const __dirname = path.resolve();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// html 파일 읽어오는 부분
+app.engine('html', ejs.renderFile);
+app.set('views engine','html');
+
 
 app.use(cors());
 app.use(logger('dev'));
@@ -22,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/',indexRouter);
 app.use('/image',imageRouter);
 app.use('/top_10',top10_Router);
 
@@ -42,6 +46,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, () => {});
+app.listen(port, () => {
+  console.log(`Hello http://localhost:${port}`);
+});
 
-module.exports = app;
+export default app;
