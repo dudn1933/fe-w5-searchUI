@@ -1,0 +1,28 @@
+const TRANS_RIGHT = "trans_right";
+const TRANS_LEFT = "trans_left";
+const ON = "on";
+const carouselSlide = document.querySelector(".carousel_slide");
+const RIGHT = document.querySelector(".right"); 
+const LEFT = document.querySelector(".left");
+
+
+RIGHT.addEventListener('click', (e) => {
+    carouselSlide.classList.add(TRANS_RIGHT);
+    carouselSlide.classList.add(ON);
+    setTimeout(() => {
+        carouselSlide.classList.remove(ON);
+        carouselSlide.classList.remove(TRANS_RIGHT);        
+        carouselSlide.insertBefore(carouselSlide.firstElementChild, null);
+    },300)
+});
+
+
+LEFT.addEventListener("click", () => {
+    carouselSlide.classList.add(TRANS_LEFT);
+    carouselSlide.classList.add(ON);
+    setTimeout(() => {
+        carouselSlide.classList.remove(ON);
+        carouselSlide.classList.remove(TRANS_LEFT);        
+        carouselSlide.insertBefore(carouselSlide.lastElementChild,carouselSlide.firstElementChild);
+    },300)
+});
