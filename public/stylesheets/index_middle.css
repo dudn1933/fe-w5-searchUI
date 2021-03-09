@@ -46,7 +46,7 @@
 .top_content .slider_box .slider .trans_left {
   transform: translateX(485px);
 }
-.top_content .slider_box .slider .on {
+.top_content .slider_box .slider .on, .rolling_list_box.on {
   transition: transform 0.3s ease-in-out;
 }
 .top_content .slider_box .slider .items {

@@ -1,7 +1,8 @@
+import _ from "./utill.js"
+
 export const best = (img) => {
     const best_prefix = img.best.prefix;
     const img_url = Object.values(img.best.list);
-
     const best = document.querySelector(".best100");
 
     best.innerHTML = `<img src=${best_prefix + img_url[0].src}>`
