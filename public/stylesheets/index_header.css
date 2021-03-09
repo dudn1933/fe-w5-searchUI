@@ -53,6 +53,7 @@ body {
   position: absolute;
   cursor: pointer;
   right: 0;
+  top: 0;
   width: 52px;
   height: 55px;
   padding: 0;
@@ -82,7 +83,6 @@ body {
 .rolling_list_box {
   position: absolute;
   width: 70%;
-  top:-2px;
   z-index:-1;
 }
 
