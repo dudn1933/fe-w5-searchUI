@@ -20,6 +20,7 @@ app.set('views engine','html');
 
 
 app.use(cors());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/',indexRouter);
 app.use('/image',imageRouter);
 app.use('/top_10',top10_Router);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -51,3 +53,4 @@ app.listen(port, () => {
 });
 
 export default app;
+
