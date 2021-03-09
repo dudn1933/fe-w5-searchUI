@@ -48,7 +48,10 @@ export const rolling_keyword = (titles) => {
 }
 
 search_input.addEventListener("input", (e) => {
+    console.log(e.value)
     if(e.data !== null) {
         rolling_list_box.classList.add(search_bar_list_off);
+    } else if(e.value === undefined) {
+        rolling_list_box.classList.remove(search_bar_list_off);
     }
 })
