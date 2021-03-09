@@ -15,8 +15,9 @@ const __dirname = path.resolve();
 
 // view engine setup
 // html 파일 읽어오는 부분
+
+app.set('views engine','ejs');
 app.engine('html', ejs.renderFile);
-app.set('views engine','html');
 
 
 app.use(cors());

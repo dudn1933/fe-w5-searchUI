@@ -1,9 +1,10 @@
+import _ from "./utill.js";
 const TRANS_RIGHT = "trans_right";
 const TRANS_LEFT = "trans_left";
 const ON = "on";
-const carouselSlide = document.querySelector(".carousel_slide");
-const RIGHT = document.querySelector(".right"); 
-const LEFT = document.querySelector(".left");
+const carouselSlide = _.$(".carousel_slide");
+const RIGHT = _.$(".right"); 
+const LEFT = _.$(".left");
 
 
 RIGHT.addEventListener('click', (e) => {
