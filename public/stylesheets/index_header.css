@@ -53,6 +53,7 @@ body {
   position: absolute;
   cursor: pointer;
   right: 0;
+  top:0;
   width: 52px;
   height: 55px;
   padding: 0;
@@ -106,8 +107,49 @@ body {
   padding: 30px;
 }
 
-.search_bar_list_off {
+.display_off {
   display:none;
+}
+
+.switch_menu_screen {
+  position:relative;
+}
+
+.keyword_search_list_box {
+  position: absolute;
+  border: 1px solid red;
+  width: 100%;
+  left:0;
+  top:100%;
+  border-radius: 10px;
+  height:300px;
+  background-color:white;
+  box-sizing: border-box;
+  z-index:6;
+}
+
+.keyword_search_list {
+  padding: 20px 0;
+  margin:0;
+  width:50%;
+}
+
+.keyword_search_lists {
+  display: block;
+  padding:0 30px;
+  width:100%;
+  box-sizing: border-box;
+  height:26px;
+  cursor:pointer;
+  list-style:none;
+  color:black;
+  text-overflow:ellipsis;
+  overflow: hidden; 
+  white-space: nowrap; 
+}
+
+.keyword_search_lists:hover {
+  background-color: #cdcdcd;
 }
 
 .top10_keyword {
