@@ -16,5 +16,3 @@ const top_10 = fetch("http://localhost:3000/top_10") // 여기서 서버에 요�
     top_slide(json);
     rolling_keyword(json);
 });
-
-const a = fetch("")
