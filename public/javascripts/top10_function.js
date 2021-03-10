@@ -7,6 +7,7 @@ const search_bar_list = _.$(".search_bar_list");
 const lists = _.$all(".lists");
 const keyword_search_list_box = _.$(".keyword_search_list_box");
 const keyword_search_list = _.$(".keyword_search_list");
+const keyword_search_lists = _.$all(".keyword_search_lists");
 
 const bar_color = "search_bar_color";
 const display_off = "display_off";
@@ -91,6 +92,9 @@ const keyword_search = (word) => {
         acc = acc + `<li class="keyword_search_lists">${cur}</li>`;
         return acc;
     },"");
-    
     keyword_search_list.innerHTML = str;
+}
+
+const highright = () => {
+    
 }
