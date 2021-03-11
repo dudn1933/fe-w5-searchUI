@@ -8,22 +8,19 @@ const LEFT = _.$(".left");
 
 
 RIGHT.addEventListener('click', (e) => {
-    carouselSlide.classList.add(TRANS_RIGHT);
-    carouselSlide.classList.add(ON);
+    _.addClass(carouselSlide,TRANS_RIGHT,ON);
     setTimeout(() => {
-        carouselSlide.classList.remove(ON);
-        carouselSlide.classList.remove(TRANS_RIGHT);        
+        _.removeClass(carouselSlide,TRANS_RIGHT,ON);
         carouselSlide.insertBefore(carouselSlide.firstElementChild, null);
     },300)
 });
 
 
 LEFT.addEventListener("click", () => {
-    carouselSlide.classList.add(TRANS_LEFT);
-    carouselSlide.classList.add(ON);
+    carouselSlide_.addClass(TRANS_LEFT);
+    carouselSlide_.addClass(ON);
     setTimeout(() => {
-        carouselSlide.classList.remove(ON);
-        carouselSlide.classList.remove(TRANS_LEFT);        
+        _.removeClass(carouselSlide,TRANS_LEFT,ON);
         carouselSlide.insertBefore(carouselSlide.lastElementChild,carouselSlide.firstElementChild);
     },300)
 });

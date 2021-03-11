@@ -1,38 +1,36 @@
 import _ from "./utill.js"
 
+// 더보기 구현
+const hot_deal = _.$(".hot_dael_box");
+const plus_img = _.$(".plus_img");
+const best100 = _.$(".best100");
+const BOX = _.$(".carousel_slide");
+
 export const best = (img) => {
     const best_prefix = img.best.prefix;
     const img_url = Object.values(img.best.list);
-    const best = document.querySelector(".best100");
 
-    best.innerHTML = `<img src=${best_prefix + img_url[0].src}>`
-}
+    best100.innerHTML = `<img src=${best_prefix + img_url[0].src}>`
+
+    return img;
+};
 
 // 캐러셀 슬라이더에 이미지 넣기
 export const carousel = (img) => {
     const img_prefix = img.event.prefix;
-    const array = [];
-    const img_url = Object.values(img.event.list);
-    
-    for(const a of img_url) {
-        array.push(img_prefix+a.src);
-    }
-    
-    const BOX = document.querySelector(".carousel_slide");
-    
-    let str='';
-    for(let i=0; i<array.length; i++) {
-        str += `<img class="items" src="${array[i]}"></img>`;
-    }
+    const img_url = Object.values(img.event.list);    
+    const array = img_url.map(v => img_prefix+v.src).reduce((acc,cur) => {
+        return acc = acc + `<img class="items" src="${cur}"></img>`
+    },"");
 
-    BOX.innerHTML = str;
-}
+    BOX.innerHTML = array;
+    return img;
+};
 
 export const mouse_slide = (img) => {
-    
     const img_prefix = img.mouse_slide.prefix;
     const img_url = img.mouse_slide.list;
-    const five_slide = document.querySelector(".top_imglist");
+    const five_slide = _.$(".top_imglist");
 
     let str = '';
     let counter = 0;
@@ -52,14 +50,8 @@ export const mouse_slide = (img) => {
         five_slide.insertAdjacentHTML("beforeend",`<ul>${str}</ul>`);
         str = '';
     }
-    // five_slide.insertAdjacentElement("beforeend",ul);
-        
+    return img;        
 };
-
-
-// 더보기 구현
-const hot_deal = document.querySelector(".hot_dael_box");
-const plus_img = document.querySelector(".plus_img");
 
 export const plus = (img) => {
     const plus_prefix = img.box.prefix;
@@ -70,6 +62,7 @@ export const plus = (img) => {
 
     const ul_tag = document.createElement("ul");
     ul_tag.className = "middle_img";
+
     for(let i=0; i<5; i++) {
         str += `<li>
                 <span><img src="${plus_prefix + img_url[i].src}"></span>
@@ -110,4 +103,4 @@ export const plus = (img) => {
                                 이제 사진 없지롱`;
         }
     });
-}
+};
