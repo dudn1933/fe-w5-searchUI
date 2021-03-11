@@ -25,10 +25,11 @@ export const View_top10_list = (titles) => {
 }
 
 // 검색어 배열로 반환 후 화면에 표시
-const View_search_keywords = (word) => {
+const View_search_keywords = (word, search_keyword) => {
     const lists = word.suggestions.map(v => v.value); // 배열에는 검색어에 해당하는 list만 담겨있다.
     const str = lists.reduce((acc,cur) => {
-        acc = acc + `<li class="keyword_search_lists">${cur}</li>`;
+        let change = cur.replace(search_keyword, `<span class="search_keyword_color">${search_keyword}</span>`);
+        acc = acc + `<li class="keyword_search_lists">${change}</li>`;
         return acc;
     },"");
     keyword_search_list.innerHTML = str;
@@ -100,13 +101,7 @@ export const init_searchBar_Event = () => {
         count = setTimeout(() => {
             fetch(`https://completion.amazon.com/api/2017/suggestions?session-id=133-4736477-7395454&customer-id=&request-id=4YM3EXKRH1QJB16MSJGT&page-type=Gateway&lop=en_US&site-variant=desktop&client-info=amazon-search-ui&mid=ATVPDKIKX0DER&alias=aps&b2b=0&fresh=0&ks=71&prefix=${e.target.value}&event=onKeyPress&limit=11&fb=1&suggestion-type=KEYWORD`)
             .then(response => response.json())
-            .then(json => View_search_keywords(json))
-            .then(search_list => View_keyword_highlight(search_list, e.target.value));
+            .then(json => View_search_keywords(json, e.target.value));
         },0);
     })
-}
-
-const View_keyword_highlight = (search_list, search_term) => {
-    // 미완성
-
 }

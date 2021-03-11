@@ -65,6 +65,10 @@ body {
   transform: translateY(2px);
 }
 
+.search_keyword_color {
+  color:coral;
+}
+
 .input_list_box {
   position:relative;
   height:35px;
