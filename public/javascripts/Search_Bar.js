@@ -1,4 +1,4 @@
-import { _, DOM, CLASS_LIST } from "./utill.js";
+import { _, DOM, CLASS_LIST, delay } from "./utill.js";
 
 let count;
 
@@ -32,17 +32,24 @@ export const Rolling_slide_top10_title = (titles) => {
     DOM.ROLLING_LIST_BOX.insertAdjacentHTML("beforeend",str)
 }
 
-export const Rolling_slide = () => {
+export async function Rolling_slide() {
     // 재귀함수 사용하여 계속 반복
-    setTimeout(() => {
+    const play_list1 = () => {
+        _.removeClass(DOM.ROLLING_LIST_BOX, CLASS_LIST.TRANS_TOP,CLASS_LIST.ON);
+        DOM.ROLLING_LIST_BOX.insertBefore(DOM.ROLLING_LIST_BOX.firstElementChild, null);
+        Rolling_slide();
+    }
+
+    const play_list2 = () => {
         _.addClass(DOM.ROLLING_LIST_BOX, CLASS_LIST.TRANS_TOP,CLASS_LIST.ON);
-        setTimeout (() => {
-            DOM.ROLLING_LIST_BOX.insertBefore(DOM.ROLLING_LIST_BOX.firstElementChild, null);
-            _.removeClass(DOM.ROLLING_LIST_BOX, CLASS_LIST.TRANS_TOP,CLASS_LIST.ON);
-            Rolling_slide();
-        },300);
-    },2000);
+    }
+
+    await delay(play_list2, 2000);
+    await delay(play_list1,300);
 }
+
+const a = new Rolling();
+
 
 export const init_searchBar_Event = () => {
     document.addEventListener("click", (e) => {
@@ -52,7 +59,7 @@ export const init_searchBar_Event = () => {
         if(close && !contain) {
             _.addClass(DOM.INPUT_BOX, CLASS_LIST.BAR_COLOR);
             _.removeClass(DOM.SEARCH_BAR_LIST,CLASS_LIST.DISPLAY_OFF);
-            if(search_input.value !== "") {
+            if(DOM.SEARCH_INPUT.value !== "") {
                 _.removeClass(DOM.KEYWORD_SEARCH_LIST_BOX,CLASS_LIST.DISPLAY_OFF);
             }
         }

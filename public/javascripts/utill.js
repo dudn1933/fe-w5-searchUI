@@ -36,3 +36,5 @@ export const CLASS_LIST = {
     RIGHT_BUTTON_CURSOR : "right_button_cursor",
     LEFT_BUTTON_CURSOR : "left_button_cursor"
 }
+
+export const delay = (data, ms) => new Promise((resolve) => setTimeout(()=> resolve(data()), ms));
